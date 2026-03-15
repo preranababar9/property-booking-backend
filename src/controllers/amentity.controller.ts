@@ -12,6 +12,7 @@ export const createAmenity = asyncHandler(
       success: true,
       data: amenity,
     });
+    console.log(req.body);
   },
 );
 
@@ -57,7 +58,7 @@ export const updateAmenity = asyncHandler(
     }
 
     const amenity = await Amenity.findByIdAndUpdate(id, req.body, {
-      new: true,
+      returnDocument: "after",
       runValidators: true,
     }).lean();
 

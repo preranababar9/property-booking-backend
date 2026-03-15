@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
+import routes from "./routes/index"
 
 const app = express();
 
@@ -19,7 +20,7 @@ app.get("/health", (req: Request, res: Response) => {
     .json({ status: "ok", env: process.env.NODE_ENV || "development" });
 });
 
-  app.use('/api/v1', );
+  app.use('/api/v1', routes);
 
 
 export default app;
