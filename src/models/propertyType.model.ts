@@ -11,15 +11,20 @@ export interface IPropertyType extends Document {
 const PropertyTypeSchema = new Schema<IPropertyType>(
   {
     name: { type: String, required: true, trim: true, unique: true },
+    description: {
+      type: String,
+    },
+    iconUrl: {
+      type: String,
+    }
   },
   {
     timestamps: true,
   },
 );
 
-const PropertyType : Model<IPropertyType> = 
-(mongoose.models.PropertyType as Model<IPropertyType> || 
-    mongoose.model<IPropertyType>('PropertyType',PropertyTypeSchema)
-)
+const PropertyType: Model<IPropertyType> =
+  (mongoose.models.PropertyType as Model<IPropertyType>) ||
+  mongoose.model<IPropertyType>("PropertyType", PropertyTypeSchema);
 
 export default PropertyType;
