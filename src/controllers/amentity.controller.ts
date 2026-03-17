@@ -12,7 +12,6 @@ export const createAmenity = asyncHandler(
       success: true,
       data: amenity,
     });
-    console.log(req.body);
   },
 );
 
